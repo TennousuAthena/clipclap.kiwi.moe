@@ -14,6 +14,7 @@ const legalLinks = [
   { label: "使用协议", to: "/terms" },
   { label: "隐私政策", to: "/privacy" },
   { label: "用户交流", to: "/community" },
+  { label: "开放源代码", to: "https://github.com/TennousuAthena/ClipClap" },
 ];
 
 export default function Footer() {

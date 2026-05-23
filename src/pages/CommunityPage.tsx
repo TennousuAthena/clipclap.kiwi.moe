@@ -133,7 +133,11 @@ export default function CommunityPage() {
           <div className="p-6 rounded-2xl glass-card border border-white/5 text-center">
             <p className="text-[#8b9cc8] text-sm leading-relaxed">
               遇到问题？欢迎在群内反馈，或通过
-              <span className="text-blue-300 mx-1">GitHub Issues</span>
+              <span className="text-blue-300 mx-1">
+              <a href="https://github.com/TennousuAthena/ClipClap/issues">
+                GitHub Issues
+              </a>
+              </span>
               提交 Bug 报告。我们会尽快响应并在后续版本中修复。
             </p>
           </div>
