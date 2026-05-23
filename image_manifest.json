@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6myaagta/hero-bg-clipclap.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6myaagta/hero-bg-clipclap.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6myaagta/hero-bg-clipclap.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Abstract futuristic dark tech hero background for a clipboard manager app on HarmonyOS PC. Deep dark navy to purple gradient background with subtle glowing grid lines, floating translucent clipboard icons, soft blue and purple light rays, minimalist and elegant, suitable for a productivity app landing page",
+      "style": "minimalist",
+      "filename": "hero-bg-clipclap.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6yiaagtq/app-icon-clipclap.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6yiaagtq/app-icon-clipclap.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6yiaagtq/app-icon-clipclap.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Clean modern app icon for a clipboard manager called ClipClap. Square icon with rounded corners, dark navy background, a stylized clipboard with a checkmark or lightning bolt in bright blue-purple gradient, minimalist flat design, professional productivity app icon",
+      "style": "minimalist",
+      "filename": "app-icon-clipclap.png"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw72yaagsq/feature-clipboard-history.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw72yaagsq/feature-clipboard-history.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw72yaagsq/feature-clipboard-history.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Decorative floating UI card showing clipboard history list items on a dark glassmorphism panel, blue purple gradient accent, modern HarmonyOS style UI mockup, clean sans-serif typography, subtle glow effects",
+      "style": "minimalist",
+      "filename": "feature-clipboard-history.jpg"
+    }
+  ],
+  "success_count": 3,
+  "failed_count": 0,
+  "message": "Generated 3/3 images"
+}
