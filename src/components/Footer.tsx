@@ -1,7 +1,7 @@
 import { Clipboard, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const APP_ICON = "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pderpsaaagrq/app-icon_variant_2.png";
+const APP_ICON = "/assets/app-icon.png";
 
 const pageLinks = [
   { label: "功能特性", href: "/#features" },
