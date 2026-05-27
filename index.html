@@ -1,16 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="%VITE_APP_LOGO_URL%" />
+    <link rel="icon" type="image/png" href="%VITE_APP_LOGO_URL%" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>%VITE_APP_TITLE%</title>
     <meta name="description" content="%VITE_APP_DESCRIPTION%" />
-    <meta name="author" content="Atoms" />
+    <meta name="author" content="ClipClap" />
+    <meta name="keywords" content="ClipClap,鸿蒙剪贴板,HarmonyOS,剪贴板管理,剪贴板历史记录,鸿蒙PC,HarmonyOS 6.0,PC剪贴板,2in1,剪贴板工具,复制粘贴,效率工具" />
+    <link rel="canonical" href="https://clipclap.kiwi.moe" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="%VITE_APP_TITLE%" />
     <meta property="og:description" content="%VITE_APP_DESCRIPTION%" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clipclap.kiwi.moe" />
+    <meta property="og:image" content="%VITE_APP_LOGO_URL%" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="ClipClap" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%VITE_APP_TITLE%" />
+    <meta name="twitter:description" content="%VITE_APP_DESCRIPTION%" />
+    <meta name="twitter:image" content="%VITE_APP_LOGO_URL%" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ClipClap",
+      "alternateName": "鸿蒙剪贴板管理工具",
+      "description": "%VITE_APP_DESCRIPTION%",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "HarmonyOS 6.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "softwareVersion": "1.0.0",
+      "screenshot": [
+        "https://clipclap.kiwi.moe/assets/screenshot-history.jpeg",
+        "https://clipclap.kiwi.moe/assets/screenshot-settings.jpeg",
+        "https://clipclap.kiwi.moe/assets/screenshot-popup.png"
+      ],
+      "featureList": "剪贴板历史记录管理,60条记录存储,快捷键唤起,智能搜索,多语言支持,深色主题"
+    }
+    </script>
   </head>
 
   <body>

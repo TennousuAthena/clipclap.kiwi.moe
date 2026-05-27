@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@metagptx/vite-plugin-source-locator": "latest",
-    "@metagptx/web-sdk": "latest",
     "@playwright/mcp": "^0.0.36",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -51,6 +49,7 @@
     "lucide-react": "^0.462.0",
     "markdown-to-jsx": "^9.7.13",
     "next-themes": "^0.3.0",
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",

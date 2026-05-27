@@ -1,3 +1,5 @@
 .mgx/
 node_modules/
 dist/
+
+.pnpm-store/

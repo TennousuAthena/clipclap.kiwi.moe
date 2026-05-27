@@ -1,6 +1,7 @@
 import { ArrowDown, Clipboard, Zap, Star } from "lucide-react";
 
-const HERO_BG = "https://mgx-backend-cdn.metadl.com/generate/images/76657/2026-05-23/pczw6myaagta/hero-bg-clipclap.png";
+// Hero background image - replace with your own hosted image
+const HERO_BG = "/assets/hero-bg.png";
 const APP_ICON = "/assets/app-icon.png";
 
 export default function HeroSection() {
@@ -100,7 +101,7 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 items-center">
           <a
-            href="https://appgallery.huawei.com/"
+            href="https://appgallery.huawei.com/app/detail?id=moe.kiwi.clipclap"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl gradient-bg text-white font-semibold text-base shadow-lg hover:scale-105 transition-all duration-200"

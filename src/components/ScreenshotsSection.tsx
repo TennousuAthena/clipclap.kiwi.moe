@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { X } from "lucide-react";
+
 const screenshots = [
   {
     label: "历史记录",
@@ -17,6 +20,8 @@ const screenshots = [
 ];
 
 export default function ScreenshotsSection() {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
   return (
     <section id="screenshots" className="section-padding px-6 relative">
       <div className="max-w-6xl mx-auto">
@@ -47,13 +52,14 @@ export default function ScreenshotsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {screenshots.map((shot, i) => (
             <div key={i} className="group flex flex-col gap-4">
-              {/* Screenshot image — rounded corners only, no window chrome */}
+              {/* Screenshot image — clickable to enlarge */}
               <div
-                className="relative rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300"
+                className="relative rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300 cursor-pointer"
                 style={{
                   boxShadow: "0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
                   border: "1px solid rgba(13,122,107,0.18)",
                 }}
+                onClick={() => setLightbox(shot.src)}
               >
                 <img
                   src={shot.src}
@@ -75,6 +81,27 @@ export default function ScreenshotsSection() {
           ))}
         </div>
       </div>
+
+      {/* Lightbox overlay */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+            onClick={() => setLightbox(null)}
+          >
+            <X size={24} />
+          </button>
+          <img
+            src={lightbox}
+            alt="截图放大"
+            className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }

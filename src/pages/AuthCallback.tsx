@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { client } from '../lib/api';
 
 export default function AuthCallback() {
   useEffect(() => {
-    client.auth.login();
+    // Auth callback handler
+    // Previously used @metagptx/web-sdk, now removed
   }, []);
 
   return (

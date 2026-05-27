@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
-import { viteSourceLocator } from '@metagptx/vite-plugin-source-locator';
-import { atoms } from '@metagptx/web-sdk/plugins';
 import { vitePrerenderPlugin } from 'vite-prerender-plugin';
 import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
@@ -17,11 +15,11 @@ function escapeHtmlAttr(str: string): string {
     .replace(/'/g, '&#39;');
 }
 
-process.env.VITE_APP_TITLE ??= process.env.OVERVIEW_TITLE ?? 'shadcnui';
-process.env.VITE_APP_DESCRIPTION ??= process.env.OVERVIEW_DESCRIPTION ?? 'Atoms Generated Project';
+process.env.VITE_APP_TITLE ??= process.env.OVERVIEW_TITLE ?? 'ClipClap - 鸿蒙剪贴板管理工具 | HarmonyOS 6.0 剪贴板历史记录';
+process.env.VITE_APP_DESCRIPTION ??= process.env.OVERVIEW_DESCRIPTION ?? 'ClipClap 是 HarmonyOS 6.0 PC/2in1 专属的剪贴板历史管理工具。支持60条历史记录、快捷唤起、智能搜索，让每一次复制都有迹可循。免费下载，提升办公效率。';
 process.env.VITE_APP_TITLE = escapeHtmlAttr(process.env.VITE_APP_TITLE);
 process.env.VITE_APP_DESCRIPTION = escapeHtmlAttr(process.env.VITE_APP_DESCRIPTION);
-process.env.VITE_APP_LOGO_URL ??= process.env.OVERVIEW_LOGO_URL ?? 'https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico';
+process.env.VITE_APP_LOGO_URL ??= process.env.OVERVIEW_LOGO_URL ?? '/assets/app-icon.png';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -29,13 +27,9 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [
-      viteSourceLocator({
-        prefix: 'mgx', // Prefix used to identify source locations; do not change.
-      }),
       react(),
-      atoms(),
       Sitemap({
-        hostname: 'https://atoms.template.com',
+        hostname: 'https://clipclap.kiwi.moe',
         lastmod: getSitemapLastmod(),
         readable: true,
         generateRobotsTxt: true,
@@ -56,6 +50,7 @@ export default defineConfig(({ command }) => {
     server: {
       host: '0.0.0.0', // Listen on all network interfaces.
       port: parseInt(process.env.VITE_PORT || '3000'),
+      allowedHosts: ['j3fjh4cqeo-3000.cnb.run'],
       proxy: {
         '/api': {
           target: `http://localhost:8000`,

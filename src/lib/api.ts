@@ -1,4 +1,2 @@
-import { createClient } from '@metagptx/web-sdk';
-
-// Create client instance
-export const client = createClient();
+// API client placeholder
+// Removed @metagptx/web-sdk dependency

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Users, MessageSquare, ExternalLink, QrCode } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
 
 const channels = [
   {
@@ -12,7 +13,7 @@ const channels = [
     badgeBg: "bg-blue-500/10 border-blue-500/30 text-blue-300",
     description: "加入 ClipClap 官方 QQ 群，与其他用户交流使用心得、反馈问题、获取最新动态。",
     linkLabel: "QQ 群链接",
-    linkPlaceholder: "https://qm.qq.com/xxxxxxxx",
+    linkPlaceholder: "https://qm.qq.com/q/A4Eao5cDjq",
     qrLabel: "QQ 群二维码",
     qrNote: "扫码加入 QQ 群",
     tips: [
@@ -21,32 +22,38 @@ const channels = [
       "与鸿蒙 PC 用户交流效率技巧",
     ],
   },
-  {
-    name: "飞书群",
-    icon: <Users size={28} />,
-    color: "from-purple-500 to-violet-600",
-    glow: "rgba(139, 92, 246, 0.15)",
-    border: "border-purple-500/20",
-    badgeBg: "bg-purple-500/10 border-purple-500/30 text-purple-300",
-    description: "加入 ClipClap 飞书用户群，适合企业用户和开发者，支持结构化讨论与文档协作。",
-    linkLabel: "飞书群链接",
-    linkPlaceholder: "https://applink.feishu.cn/xxxxxxxx",
-    qrLabel: "飞书群二维码",
-    qrNote: "扫码加入飞书群",
-    tips: [
-      "适合企业用户和开发者",
-      "支持话题讨论和文档分享",
-      "功能需求和路线图讨论",
-    ],
-  },
+  // {
+  //   name: "飞书群",
+  //   icon: <Users size={28} />,
+  //   color: "from-purple-500 to-violet-600",
+  //   glow: "rgba(139, 92, 246, 0.15)",
+  //   border: "border-purple-500/20",
+  //   badgeBg: "bg-purple-500/10 border-purple-500/30 text-purple-300",
+  //   description: "加入 ClipClap 飞书用户群，适合企业用户和开发者，支持结构化讨论与文档协作。",
+  //   linkLabel: "飞书群链接",
+  //   linkPlaceholder: "https://applink.feishu.cn/xxxxxxxx",
+  //   qrLabel: "飞书群二维码",
+  //   qrNote: "扫码加入飞书群",
+  //   tips: [
+  //     "适合企业用户和开发者",
+  //     "支持话题讨论和文档分享",
+  //     "功能需求和路线图讨论",
+  //   ],
+  // },
 ];
 
-function QRCodePlaceholder({ label, note }: { label: string; note: string }) {
+function QRCodeDisplay({ url, label, note }: { url: string; label: string; note: string }) {
   return (
     <div className="flex flex-col items-center gap-3">
-      <div className="w-36 h-36 rounded-2xl border-2 border-dashed border-white/15 bg-white/3 flex flex-col items-center justify-center gap-2 hover:border-white/25 transition-colors">
-        <QrCode size={36} className="text-white/20" />
-        <span className="text-white/25 text-xs text-center px-2">{label}</span>
+      <div className="w-36 h-36 rounded-2xl bg-white p-3 flex items-center justify-center">
+        <QRCodeSVG
+          value={url}
+          size={120}
+          bgColor="#ffffff"
+          fgColor="#0a0e1a"
+          level="M"
+          includeMargin={false}
+        />
       </div>
       <p className="text-[#8b9cc8]/60 text-xs">{note}</p>
     </div>
@@ -74,7 +81,7 @@ export default function CommunityPage() {
           </div>
 
           {/* Channel cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+          <div className="grid grid-cols-1 gap-8 mb-14 max-w-lg mx-auto">
             {channels.map((channel, i) => (
               <div
                 key={i}
@@ -101,18 +108,22 @@ export default function CommunityPage() {
 
                 {/* QR Code + Link */}
                 <div className="flex flex-col items-center gap-5 p-5 rounded-2xl bg-white/3 border border-white/5 mb-6">
-                  <QRCodePlaceholder label={channel.qrLabel} note={channel.qrNote} />
+                  <QRCodeDisplay url={channel.linkPlaceholder} label={channel.qrLabel} note={channel.qrNote} />
 
-                  {/* Link placeholder */}
+                  {/* Link */}
                   <div className="w-full">
                     <p className="text-[#8b9cc8]/60 text-xs mb-2">{channel.linkLabel}</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/8">
+                    <a
+                      href={channel.linkPlaceholder}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/8 hover:border-white/15 transition-colors"
+                    >
                       <code className="text-[#8b9cc8]/50 text-xs flex-1 truncate">
                         {channel.linkPlaceholder}
                       </code>
                       <ExternalLink size={14} className="text-white/20 shrink-0" />
-                    </div>
-                    <p className="text-white/20 text-xs mt-1.5 text-center">链接占位符，待填写</p>
+                    </a>
                   </div>
                 </div>
 
