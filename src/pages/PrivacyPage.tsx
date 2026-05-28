@@ -82,54 +82,61 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#0a0e1a]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--bg-primary)" }}>
       <Navbar />
-      <main className="pt-28 pb-20 px-6">
+      <main className="pt-20 pb-10 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-300 text-sm font-medium mb-5">
-              <ShieldCheck size={14} />
+          <div className="text-center mb-8">
+            <div
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-sm font-medium mb-3"
+              style={{ borderColor: "var(--border-color)", color: "var(--accent-light)", backgroundColor: "color-mix(in srgb, var(--accent-main) 12%, transparent)" }}
+            >
+              <ShieldCheck size={13} />
               隐私保护
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
               隐私政策
             </h1>
-            <p className="text-[#8b9cc8] text-base">
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
               ClipClap 隐私政策 · 最后更新：2026 年 5 月 23 日
             </p>
           </div>
 
           {/* Core promise banner */}
-          <div className="p-6 rounded-2xl border border-green-500/25 bg-green-500/8 mb-10 flex items-start gap-4">
-            <ShieldCheck size={24} className="text-green-400 shrink-0 mt-0.5" />
+          <div
+            className="p-4 rounded-xl border mb-6 flex items-start gap-3"
+            style={{ borderColor: "color-mix(in srgb, var(--accent-light) 30%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent-main) 8%, transparent)" }}
+          >
+            <ShieldCheck size={20} className="shrink-0 mt-0.5" style={{ color: "var(--accent-light)" }} />
             <div>
-              <p className="text-green-300 font-semibold text-base mb-1">隐私核心承诺</p>
-              <p className="text-[#8b9cc8] text-sm leading-relaxed">
+              <p className="font-semibold text-sm mb-1" style={{ color: "var(--accent-light)" }}>隐私核心承诺</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 ClipClap 不收集、不上传、不共享任何用户数据。所有剪贴板历史记录仅存储在您的本地设备，永远不会离开您的设备。
               </p>
             </div>
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {sections.map((section, i) => (
-              <div
-                key={i}
-                className="p-7 rounded-2xl glass-card border border-white/5 hover:border-white/8 transition-colors"
-              >
-                <h2 className="text-white font-bold text-lg mb-4 gradient-text">{section.title}</h2>
+              <div key={i} className="p-5 rounded-xl glass-card">
+                <h2 className="font-bold text-base mb-3 gradient-text">{section.title}</h2>
                 {section.content && (
-                  <p className="text-[#8b9cc8] text-sm leading-7 whitespace-pre-line">{section.content}</p>
+                  <p className="text-sm leading-6 whitespace-pre-line" style={{ color: "var(--text-secondary)" }}>{section.content}</p>
                 )}
                 {section.permissions && (
-                  <div className="flex flex-col gap-4 mt-2">
+                  <div className="flex flex-col gap-3 mt-2">
                     {section.permissions.map((perm, j) => (
-                      <div key={j} className="p-4 rounded-xl bg-white/3 border border-white/5">
-                        <code className="text-blue-300 text-xs font-mono font-semibold block mb-2">
+                      <div
+                        key={j}
+                        className="p-3 rounded-lg border"
+                        style={{ borderColor: "var(--border-color)", backgroundColor: "color-mix(in srgb, var(--bg-secondary) 60%, transparent)" }}
+                      >
+                        <code className="text-xs font-mono font-semibold block mb-1.5" style={{ color: "var(--accent-light)" }}>
                           {perm.name}
                         </code>
-                        <p className="text-[#8b9cc8] text-sm leading-relaxed">{perm.desc}</p>
+                        <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{perm.desc}</p>
                       </div>
                     ))}
                   </div>

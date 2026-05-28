@@ -69,41 +69,44 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#0a0e1a]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--bg-primary)" }}>
       <Navbar />
-      <main className="pt-28 pb-20 px-6">
+      <main className="pt-20 pb-10 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-medium mb-5">
-              <ScrollText size={14} />
+          <div className="text-center mb-8">
+            <div
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-sm font-medium mb-3"
+              style={{ borderColor: "var(--border-color)", color: "var(--accent-light)", backgroundColor: "color-mix(in srgb, var(--accent-main) 12%, transparent)" }}
+            >
+              <ScrollText size={13} />
               法律文件
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
               使用协议
             </h1>
-            <p className="text-[#8b9cc8] text-base">
+            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
               ClipClap 用户服务协议 · 最后更新：2026 年 5 月 23 日
             </p>
           </div>
 
           {/* Notice box */}
-          <div className="p-5 rounded-2xl border border-yellow-500/20 bg-yellow-500/5 mb-10">
-            <p className="text-yellow-300/80 text-sm leading-relaxed">
-              <span className="font-semibold text-yellow-300">请在使用前仔细阅读：</span>
+          <div
+            className="p-4 rounded-xl border mb-6"
+            style={{ borderColor: "color-mix(in srgb, var(--accent-light) 30%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent-main) 8%, transparent)" }}
+          >
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              <span className="font-semibold" style={{ color: "var(--accent-light)" }}>请在使用前仔细阅读：</span>
               本协议是您与 ClipClap 开发者之间关于使用本应用的法律协议。使用本应用即表示您同意本协议的全部条款。
             </p>
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {sections.map((section, i) => (
-              <div
-                key={i}
-                className="p-7 rounded-2xl glass-card border border-white/5 hover:border-white/8 transition-colors"
-              >
-                <h2 className="text-white font-bold text-lg mb-4 gradient-text">{section.title}</h2>
-                <p className="text-[#8b9cc8] text-sm leading-7 whitespace-pre-line">{section.content}</p>
+              <div key={i} className="p-5 rounded-xl glass-card">
+                <h2 className="font-bold text-base mb-3 gradient-text">{section.title}</h2>
+                <p className="text-sm leading-6 whitespace-pre-line" style={{ color: "var(--text-secondary)" }}>{section.content}</p>
               </div>
             ))}
           </div>

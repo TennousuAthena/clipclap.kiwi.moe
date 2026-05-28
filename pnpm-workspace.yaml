@@ -1,3 +1,5 @@
+packages:
+  - '.'
 allowBuilds:
   '@metagptx/vite-plugin-source-locator': false
   '@swc/core': false

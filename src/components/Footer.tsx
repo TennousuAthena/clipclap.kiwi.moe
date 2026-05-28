@@ -1,5 +1,6 @@
 import { Clipboard, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import useAppVersion from "@/hooks/useAppVersion";
 
 const APP_ICON = "/assets/app-icon.png";
 
@@ -18,6 +19,7 @@ const legalLinks = [
 ];
 
 export default function Footer() {
+  const version = useAppVersion();
   return (
     <footer
       className="relative pt-16 pb-8 px-6"
@@ -101,7 +103,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-                版本 1.0.0
+                版本 {version}
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--accent-main)" }} />

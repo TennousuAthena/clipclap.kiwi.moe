@@ -1,19 +1,22 @@
 import { Cpu, Package, Tag, Layers, CheckCircle2 } from "lucide-react";
-
-const specs = [
-  { icon: <Cpu size={18} />, label: "平台", value: "HarmonyOS 6.0 PC / 2in1" },
-  { icon: <Tag size={18} />, label: "版本", value: "1.0.0" },
-  { icon: <Package size={18} />, label: "Bundle", value: "moe.kiwi.clipclap" },
-  { icon: <Layers size={18} />, label: "开发语言", value: "ArkTS · Stage 模型" },
-];
-
-const permissions = [
-  { name: "READ_PASTEBOARD", desc: "读取系统剪贴板，生成本地历史记录" },
-  { name: "SYSTEM_FLOAT_WINDOW", desc: "创建全局悬浮弹窗，快速访问历史" },
-  { name: "INTERNET", desc: "加载 HTML 内容中的远程图片（可选）" },
-];
+import useAppVersion from "@/hooks/useAppVersion";
 
 export default function PlatformSection() {
+  const version = useAppVersion();
+
+  const specs = [
+    { icon: <Cpu size={18} />, label: "平台", value: "HarmonyOS 6.0 PC / 2in1" },
+    { icon: <Tag size={18} />, label: "版本", value: version },
+    { icon: <Package size={18} />, label: "Bundle", value: "moe.kiwi.clipclap" },
+    { icon: <Layers size={18} />, label: "开发语言", value: "ArkTS · Stage 模型" },
+  ];
+
+  const permissions = [
+    { name: "READ_PASTEBOARD", desc: "读取系统剪贴板，生成本地历史记录" },
+    { name: "SYSTEM_FLOAT_WINDOW", desc: "创建全局悬浮弹窗，快速访问历史" },
+    { name: "INTERNET", desc: "加载 HTML 内容中的远程图片（可选）" },
+  ];
+
   return (
     <section id="platform" className="section-padding px-6 relative">
       <div className="max-w-4xl mx-auto">

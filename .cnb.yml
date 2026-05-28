@@ -1,0 +1,72 @@
+# ============================================================
+# ClipClap - CNB Cloud Native Build Configuration
+# Project: 鸿蒙剪贴板管理工具 (Vite + React + TypeScript + shadcn/ui)
+# ============================================================
+
+# --- 云原生开发环境 (Dev Environment) ---
+$:
+  vscode:
+    - docker:
+        # 使用 Node.js 22 镜像，带有 pnpm 支持
+        image: docker.cnb.cool/looc/default-dev-env:latest
+      services:
+        - vscode
+        - docker
+      stages:
+        # 安装依赖并启动开发服务器
+        - name: setup
+          script: |
+            npm install -g pnpm
+            pnpm install
+          env:
+            NODE_ENV: development
+        - name: dev
+          script: |
+            pnpm dev
+
+# --- 主分支 CI/CD 流水线 ---
+main:
+  # push 触发
+  push:
+    - stages:
+        # 阶段 1: 安装依赖
+        - name: install dependencies
+          image: node:22
+          script: |
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+
+        # 阶段 2: 代码检查
+        - name: lint
+          image: node:22
+          script: |
+            npm install -g pnpm
+            pnpm lint
+
+        # 阶段 3: 构建项目
+        - name: build
+          image: node:22
+          script: |
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+            pnpm build
+          # 构建产物
+          artifacts:
+            - dist/
+
+  # Pull Request 触发
+  pull_request:
+    - stages:
+        - name: install and lint
+          image: node:22
+          script: |
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+            pnpm lint
+
+        - name: type check
+          image: node:22
+          script: |
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+            npx tsc --noEmit

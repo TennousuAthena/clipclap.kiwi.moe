@@ -1,10 +1,12 @@
 import { ArrowDown, Clipboard, Zap, Star } from "lucide-react";
+import useAppVersion from "@/hooks/useAppVersion";
 
 // Hero background image - replace with your own hosted image
 const HERO_BG = "/assets/hero-bg.png";
 const APP_ICON = "/assets/app-icon.png";
 
 export default function HeroSection() {
+  const version = useAppVersion();
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
@@ -132,7 +134,7 @@ export default function HeroSection() {
 
         {/* Version info */}
         <p className="mt-8 text-xs" style={{ color: "var(--text-secondary)", opacity: 0.6 }}>
-          Version 1.0.0 · Bundle: moe.kiwi.clipclap
+          Version {version} · Bundle: moe.kiwi.clipclap
         </p>
       </div>
 
